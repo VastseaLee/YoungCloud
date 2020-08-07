@@ -12,7 +12,7 @@ import java.util.Set;
 public class MyFilter implements Filter {
     private static Set<String> whiteSet;
 
-    private static String loginUrl = "http://www.baidu.com";
+    private static String loginUrl = "http://124.70.184.153/oceansun";
 
     public MyFilter(){}
 

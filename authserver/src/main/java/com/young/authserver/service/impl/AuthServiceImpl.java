@@ -37,7 +37,7 @@ public class AuthServiceImpl implements AuthService {
         return user;
     }
 
-    private String getMD5(String content) {
+    private static String getMD5(String content) {
         try {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             BigInteger digest = new BigInteger(md5.digest(content.getBytes()));

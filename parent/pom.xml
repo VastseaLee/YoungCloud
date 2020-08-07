@@ -12,6 +12,7 @@
     <artifactId>parent</artifactId>
     <version>1.0.0</version>
     <name>parent</name>
+    <packaging>pom</packaging>
     <description>Parent project</description>
 
     <properties>
@@ -43,10 +44,20 @@
             <version>1.0-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
-                    <groupId>org.apache.tomcat.embed</groupId>
-                    <artifactId>tomcat-embed-core</artifactId>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

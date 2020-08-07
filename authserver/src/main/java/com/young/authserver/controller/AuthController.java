@@ -4,9 +4,7 @@ import com.young.authserver.service.AuthService;
 import com.young.common.bean.WebResult;
 import com.young.common.bean.YoungUser;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,8 +22,8 @@ public class AuthController {
      * @param user
      * @return
      */
-    @GetMapping("login")
-    public WebResult login(YoungUser user) {
+    @PostMapping("login")
+    public WebResult login(@RequestBody YoungUser user) {
         String token = authService.login(user);
         return StringUtils.isEmpty(token) ? WebResult.fail(01) : WebResult.success(token);
     }
@@ -41,8 +39,8 @@ public class AuthController {
         return WebResult.success(authService.selectUser(request.getHeader("access_token")));
     }
 
-    @GetMapping("hah")
+    @GetMapping("love")
     public WebResult hah() {
-        return WebResult.success("Hello World");
+        return WebResult.success("Love Sun");
     }
 }
