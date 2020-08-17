@@ -26,6 +26,9 @@ public class AuthServiceImpl implements AuthService {
                 .eq(YoungUser::getAccount, user.getAccount())
                 .eq(YoungUser::getPassword, password)
                 .one();
+        if(result == null){
+            return "";
+        }
         return JwtUtil.getJwt(result);
     }
 

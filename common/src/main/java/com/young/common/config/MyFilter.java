@@ -7,14 +7,17 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Set;
 
 public class MyFilter implements Filter {
     private static Set<String> whiteSet;
 
-    private static String loginUrl = "http://124.70.184.153/oceansun";
+    private static String loginUrl = "http://www.oceanisun.top";
 
-    public MyFilter(){}
+    public MyFilter(){
+        whiteSet = new HashSet<>();
+    }
 
     public MyFilter(Set<String> set){
         whiteSet = set;
