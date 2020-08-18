@@ -15,7 +15,7 @@ public class BlogController {
     private BlogService blogService;
 
     @PostMapping("list")
-    private WebResult list(@RequestBody Blog blog){
+    public WebResult list(@RequestBody Blog blog){
         return WebResult.success(blogService.list(blog));
     }
 }

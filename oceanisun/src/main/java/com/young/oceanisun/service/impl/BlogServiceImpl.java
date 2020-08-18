@@ -9,7 +9,6 @@ import com.young.oceanisun.service.BlogService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @Service("blogService")
 public class BlogServiceImpl implements BlogService {
@@ -17,11 +16,17 @@ public class BlogServiceImpl implements BlogService {
     @Resource
     private BlogDao blogDao;
 
+    /**
+     * 分页获取博客
+     *
+     * @param blog
+     * @return
+     */
     @Override
     public IPage<Blog> list(Blog blog) {
         IPage<Blog> userPage = new Page<>(blog.getPageNum(), blog.getPageSize());
         QueryWrapper<Blog> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().eq(Blog::getDelFlag,0);
+        queryWrapper.lambda().eq(Blog::getDelFlag,0).orderByDesc(Blog::getCreateTime);
         return blogDao.selectPage(userPage,queryWrapper);
     }
 }

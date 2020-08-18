@@ -26,6 +26,11 @@ public class Blog {
     private Integer delFlag;
 
     /**
+     * 创建时间
+     */
+    private String createTime;
+
+    /**
      * 每页展示条数
      */
     @TableField(exist = false)
