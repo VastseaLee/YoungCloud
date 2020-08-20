@@ -18,4 +18,10 @@ public class BlogController {
     public WebResult list(@RequestBody Blog blog){
         return WebResult.success(blogService.list(blog));
     }
+
+    @PostMapping("save")
+    public WebResult save(@RequestBody Blog blog){
+        blogService.save(blog);
+        return WebResult.success("success");
+    }
 }

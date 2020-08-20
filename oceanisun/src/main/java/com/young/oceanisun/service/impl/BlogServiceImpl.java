@@ -9,9 +9,13 @@ import com.young.oceanisun.service.BlogService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Service("blogService")
 public class BlogServiceImpl implements BlogService {
+
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Resource
     private BlogDao blogDao;
@@ -28,5 +32,16 @@ public class BlogServiceImpl implements BlogService {
         QueryWrapper<Blog> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(Blog::getDelFlag,0).orderByDesc(Blog::getCreateTime);
         return blogDao.selectPage(userPage,queryWrapper);
+    }
+
+    /**
+     * 保存博客
+     *
+     * @param blog
+     */
+    @Override
+    public void save(Blog blog) {
+        blog.setCreateTime(dtf.format(LocalDateTime.now()));
+        blogDao.insert(blog);
     }
 }

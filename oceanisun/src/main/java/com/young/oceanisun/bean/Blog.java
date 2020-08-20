@@ -1,5 +1,6 @@
 package com.young.oceanisun.bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
@@ -7,7 +8,7 @@ import lombok.Data;
 @Data
 public class Blog {
 
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     /**

@@ -12,4 +12,11 @@ public interface BlogService {
      * @return
      */
     IPage<Blog> list(Blog blog);
+
+    /**
+     * 保存博客
+     *
+     * @param blog
+     */
+    void save(Blog blog);
 }
