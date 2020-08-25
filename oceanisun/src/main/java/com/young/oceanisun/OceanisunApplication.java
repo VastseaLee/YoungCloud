@@ -20,10 +20,10 @@ public class OceanisunApplication {
         SpringApplication.run(OceanisunApplication.class, args);
     }
 
-    @Bean
-    public Filter getFilter(){
-        return new MyFilter();
-    }
+//    @Bean
+//    public Filter getFilter(){
+//        return new MyFilter();
+//    }
 
 //    @Bean
 //    public ServletRegistrationBean statViewServlet(){
