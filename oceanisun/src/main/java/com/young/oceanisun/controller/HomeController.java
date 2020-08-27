@@ -1,6 +1,7 @@
 package com.young.oceanisun.controller;
 
 import com.young.common.bean.WebResult;
+import com.young.oceanisun.feign.AuthFeign;
 import com.young.oceanisun.service.HomeService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,19 +1,18 @@
 package com.young.oceanisun;
 
-import com.alibaba.druid.support.http.StatViewServlet;
 import com.young.common.config.MyFilter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 import javax.servlet.Filter;
-import java.util.HashMap;
-import java.util.HashSet;
+
 
 @SpringBootApplication
 @MapperScan("com.young.oceanisun.dao")
+@EnableFeignClients
 public class OceanisunApplication {
 
     public static void main(String[] args) {
