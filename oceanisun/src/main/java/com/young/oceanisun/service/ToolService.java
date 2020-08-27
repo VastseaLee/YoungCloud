@@ -3,7 +3,6 @@ package com.young.oceanisun.service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 public interface ToolService {
 
@@ -19,5 +18,5 @@ public interface ToolService {
      * @param file
      * @return
      */
-    List<String> ocr(MultipartFile file);
+    String[] ocr(MultipartFile file);
 }
