@@ -9,6 +9,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
+/**
+ * feigin调用配置  转发请求头
+ */
 @Configuration
 public class FeignConfiguration implements RequestInterceptor {
     @Override
@@ -22,7 +25,6 @@ public class FeignConfiguration implements RequestInterceptor {
                 String name = headerNames.nextElement();
                 String values = request.getHeader(name);
                 requestTemplate.header(name, values);
-
             }
         }
     }

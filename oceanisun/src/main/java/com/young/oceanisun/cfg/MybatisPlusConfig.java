@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * mybatis-plus 分页配置
+ */
 @Configuration
 @ConditionalOnClass(value = {PaginationInterceptor.class})
 public class MybatisPlusConfig {
