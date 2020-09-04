@@ -1,6 +1,7 @@
 package com.young.oceanisun.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.young.oceanisun.bean.Blog;
 
 public interface BlogService {
@@ -19,4 +20,11 @@ public interface BlogService {
      * @param blog
      */
     void save(Blog blog);
+
+    /**
+     * 修改博客
+     *
+     * @param blog
+     */
+    void update(Blog blog);
 }

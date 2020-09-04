@@ -44,4 +44,14 @@ public class BlogServiceImpl implements BlogService {
         blog.setCreateTime(dtf.format(LocalDateTime.now()));
         blogDao.insert(blog);
     }
+
+    /**
+     * 修改博客
+     *
+     * @param blog
+     */
+    @Override
+    public void update(Blog blog) {
+        blogDao.updateById(blog);
+    }
 }

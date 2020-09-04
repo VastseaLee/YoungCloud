@@ -13,7 +13,7 @@ import java.util.Enumeration;
  * feigin调用配置  转发请求头
  */
 @Configuration
-public class FeignConfiguration implements RequestInterceptor {
+public class FeignConfig implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder

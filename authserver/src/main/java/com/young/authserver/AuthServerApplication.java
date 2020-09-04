@@ -14,15 +14,7 @@ import java.util.Set;
 @MapperScan("com.young.authserver.dao")
 public class AuthServerApplication {
 
-    @Value("${white.list}")
-    private Set<String> whiteSet;
-
     public static void main(String[] args) {
         SpringApplication.run(AuthServerApplication.class, args);
-    }
-
-    @Bean
-    public Filter getFilter(){
-        return new MyFilter(whiteSet);
     }
 }

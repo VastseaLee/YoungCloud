@@ -37,6 +37,10 @@ public class WebResult<T> {
         return webResult;
     }
 
+    public static WebResult success(){
+        return success(null,"");
+    }
+
     public static WebResult success(Object data){
         return success(data,"");
     }
