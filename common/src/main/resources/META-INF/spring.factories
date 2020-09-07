@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.young.common.config.MyExceptionHandler,\
+  com.young.common.config.MyFilter
