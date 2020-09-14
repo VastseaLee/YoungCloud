@@ -1,14 +1,76 @@
+#spring:
+#  application:
+#    name: lee
+#  cloud:
+#    config:
+#      name: demo             #对应{application}部分
+#      profile: dev                         #对应{profile}部分
+#      uri: http://localhost:9020         #配置中心的具体地址
+#      label: master                        #对应git的分支。如果配置中心使用的是本地存储，则该参数无用
+#      discovery:
+#        service-id: config-server      #指定配置中心的service-id，便于扩展为高可用配置集群。
+
+
+server:
+  port: 8888
+  tomcat:
+    uri-encoding: utf-8
+
 spring:
   application:
-    name: lee
-  cloud:
-    config:
-      name: demo             #对应{application}部分
-      profile: dev                         #对应{profile}部分
-      uri: http://localhost:9020         #配置中心的具体地址
-      label: master                        #对应git的分支。如果配置中心使用的是本地存储，则该参数无用
-      discovery:
-        service-id: config-server      #指定配置中心的service-id，便于扩展为高可用配置集群。
+    name: demo
+  datasource:
+    url: jdbc:mysql://rm-bp172u5b770k2ybq2jo.mysql.rds.aliyuncs.com:3306/auth?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: lwy
+    password: Youngcloud02
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #测试语句
+      validation-query: SELECT 'x'
+      initial-size: 10
+      min-idle: 5
+      max-active: 20
+      #最大等待时长（毫秒）
+      max-wait: 30000
+      #一个连接在池中的最小空闲时间（毫秒）
+      min-evictable-idle-time-millis: 180000
+      #申请连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+      test-on-borrow: false
+      #归还连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+      test-on-return: false
+      #当值大于0时poolPreparedStatements会自动修改为true(缓存preparedStatement)
+      max-pool-prepared-statement-per-connection-size: 20
+      #配置扩展插件
+      filter: stat,wall
+      #通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+      #合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+      #设置访问druid监控页的账号和密码,默认没有
+      stat-view-servlet:
+        login-username: admin
+        login-password: admin
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.young.demo.bean
+  map-underscore-to-camel-case: true
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    #表示是否将自己注册到Eureka Server，默认为true。
+    register-with-eureka: true
+    #表示是否从Eureka Server获取注册信息，默认为true。
+    fetch-registry: true
+    service-url:
+      #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔。
+      defaultZone: http://admin:950202@localhost:9000/eureka/
 
 #关闭安全认证
 management:
@@ -22,3 +84,6 @@ management:
 
 white:
   list: /hello/search
+
+young:
+  value: sss

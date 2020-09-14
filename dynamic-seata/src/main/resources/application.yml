@@ -1,0 +1,51 @@
+server:
+  port: 8109
+
+spring:
+  application:
+    name: sca-water-cockpit
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  datasource:
+    dynamic:
+      primary: ruianjichu
+      strict: false
+      datasource:
+        ruianjichu:
+          url: jdbc:mysql://192.168.2.116:3306/ruianjichu?useUnicode=true&characterEncoding=utf-8&useSSL=false
+          username: xxx
+          password: xxx
+          driver-class-name: com.mysql.jdbc.Driver
+        rscp:
+          url: jdbc:mysql://192.168.2.116:3306/rscp_200509?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+          username: sxxx
+          password: xxxx
+          driver-class-name: com.mysql.jdbc.Driver
+      initial-size: 10
+      min-idle: 5
+      max-active: 20
+      #最大等待时长（毫秒）
+      max-wait: 30000
+      #一个连接在池中的最小空闲时间（毫秒）
+      min-evictable-idle-time-millis: 180000
+  seata: true
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+
+seata:
+  application-id: ${spring.application.name} # Seata 应用编号，默认为 ${spring.application.name}
+  tx-service-group: SEATA_GROUP # Seata 事务组编号，用于 TC 集群名
+  # 服务配置项，对应 ServiceProperties 类
+  service:
+    # 虚拟组和分组的映射
+    vgroup-mapping:
+      SEATA_GROUP: default
+    # 分组和 Seata 服务的映射
+    grouplist:
+      default: localhost:8091
+

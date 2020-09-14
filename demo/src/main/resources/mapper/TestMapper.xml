@@ -4,7 +4,7 @@
 <mapper namespace="com.young.demo.dao.TestDao">
 
     <select id="hello" parameterType="long" resultType="com.young.demo.bean.User">
-        SELECT * FROM user WHERE id = #{id}
+        SELECT ${table} FROM  WHERE id = #{id}
     </select>
 
 </mapper>

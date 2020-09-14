@@ -17,15 +17,8 @@ import java.util.Set;
 @EnableFeignClients
 public class DemoApplication {
 
-    @Value("${white.list}")
-    private Set<String> whiteSet;
-
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
 
-    @Bean
-    public Filter getFilter(){
-        return new MyFilter(whiteSet);
-    }
 }

@@ -13,14 +13,12 @@ import javax.annotation.Resource;
 @RequestMapping("/hello")
 @Slf4j
 public class HelloController {
-    @Resource
-    private DemoFeign demoFeign;
+
 
     @GetMapping("/search")
     public String search(){
-        log.info("I'm info");
-        log.error("I'm erro");
-        return "这是个白名单";
+        log.info("进来了");
+        return "我是demo1";
     }
 
     @GetMapping("/query")
@@ -28,8 +26,4 @@ public class HelloController {
         return "这不是个白名单";
     }
 
-    @GetMapping("/hh")
-    public WebResult hh(){
-        return demoFeign.hello();
-    }
 }
