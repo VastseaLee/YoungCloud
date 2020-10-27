@@ -6,9 +6,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.young.oceanisun.bean.Blog;
 import com.young.oceanisun.dao.BlogDao;
 import com.young.oceanisun.service.BlogService;
+import org.springframework.core.SpringVersion;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.swing.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -53,5 +55,13 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public void update(Blog blog) {
         blogDao.updateById(blog);
+    }
+
+    /**
+     * 根据id查询博客
+     * @return
+     */
+    public Blog query(Integer id){
+        return blogDao.selectById(id);
     }
 }

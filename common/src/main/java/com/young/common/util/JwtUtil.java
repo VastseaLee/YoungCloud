@@ -31,6 +31,7 @@ public class JwtUtil {
                 //expTime是过期时间
                 .setExpiration(expiration)
                 .claim("account", user.getAccount())
+                .claim("name",user.getUserName())
                 .claim("code", jwtKey)
                 .serializeToJsonWith(new JacksonSerializer<>())
                 .compact();
@@ -62,6 +63,19 @@ public class JwtUtil {
                     .parseClaimsJws(token)
                     .getBody();
            return (String) claims.get("account");
+        } catch (Exception e) {}
+        return "";
+    }
+
+    public static String getName(String token) {
+        try {
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .deserializeJsonWith(new JacksonDeserializer<>())
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+            return (String) claims.get("name");
         } catch (Exception e) {}
         return "";
     }

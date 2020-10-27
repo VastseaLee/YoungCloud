@@ -27,4 +27,11 @@ public interface BlogService {
      * @param blog
      */
     void update(Blog blog);
+
+    /**
+     * 根据id查询详情
+     *
+     * @return
+     */
+    Blog query(Integer id);
 }

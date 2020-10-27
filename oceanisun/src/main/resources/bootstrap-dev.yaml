@@ -5,12 +5,9 @@ spring:
   application:
     name: oceanisun
   datasource:
-#    url: jdbc:mysql://rm-bp172u5b770k2ybq2jo.mysql.rds.aliyuncs.com:3306/oceanisun?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
-#    username: lwy
-#    password: Youngcloud02
-    url: jdbc:mysql://localhost:3306/oceanisun?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
-    username: root
-    password: root0202
+    url: jdbc:mysql://rm-bp172u5b770k2ybq2jo.mysql.rds.aliyuncs.com:3306/oceanisun?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: lwy
+    password: Youngcloud02
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
