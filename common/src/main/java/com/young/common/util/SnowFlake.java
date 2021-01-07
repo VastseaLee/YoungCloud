@@ -1,4 +1,4 @@
-package com.ygkj2.utils;
+package com.young.common.util;
 
 /**
  * 雪花算法，尊重作者，别他妈乱改代码
