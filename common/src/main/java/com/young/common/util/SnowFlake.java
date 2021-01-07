@@ -1,7 +1,7 @@
-package com.young.common.util;
+package com.ygkj2.utils;
 
 /**
- * 雪花算法
+ * 雪花算法，尊重作者，别他妈乱改代码
  */
 public class SnowFlake {
 
@@ -37,7 +37,7 @@ public class SnowFlake {
     private long lastStmp = -1L;//上一次时间戳
 
     public SnowFlake(long dataCenterId, long machineId) {
-        if (dataCenterId > MAX_MACHINE_NUM || dataCenterId < 0) {
+        if (dataCenterId > MAX_DATA_CENTER_NUM || dataCenterId < 0) {
             throw new IllegalArgumentException("dataCenterId out");
         }
         if (machineId > MAX_MACHINE_NUM || machineId < 0) {
@@ -79,7 +79,7 @@ public class SnowFlake {
         while (mill <= lastStmp) {
             mill = getNowTime();
         }
-        return lastStmp + 1;
+        return mill;
     }
 
     private long getNowTime() {
