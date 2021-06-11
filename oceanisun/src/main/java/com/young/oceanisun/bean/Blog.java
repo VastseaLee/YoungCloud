@@ -3,7 +3,6 @@ package com.young.oceanisun.bean;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.young.oceanisun.cfg.valid.Update;
 import lombok.Data;
 
 import javax.validation.constraints.*;
@@ -12,7 +11,7 @@ import javax.validation.constraints.*;
 public class Blog {
 
     @TableId(type = IdType.AUTO)
-    @NotNull(message = "ID empty",groups = {Update.class})
+//    @NotNull(message = "ID empty",groups = {Update.class})
     @Min(0)
     private Integer id;
 
